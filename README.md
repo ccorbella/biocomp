@@ -2,8 +2,10 @@
 Projecte Biologia Computacional
 
 ## Guillespie module
-This is the first module that must be imported and used. Using a self-created random number generator, it computes the Guillespie evolution of the next sys$$X_1 + X2 → 2X2$$
-$$X_2 → 0$$
+This is the first module that must be imported and used. Using a self-created random number generator, it computes the Guillespie evolution of the next system:
+![equation](http://latex.codecogs.com/gif.latex?X_1%20%5Crightarrow%202%B7X_2)  
+![equation](http://latex.codecogs.com/gif.latex?X_1%20&plus;%20X_2%20%5Crightarrow%202%B7X_2)  
+![equation](http://latex.codecogs.com/gif.latex?X_2%20%5Crightarrow%200)  
 
 The results are saved in vectors that, after its proper import, can be plotted using instructions such as:
 ```python
