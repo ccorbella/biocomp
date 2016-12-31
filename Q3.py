@@ -1,4 +1,3 @@
-#Final
 import numpy as 
 def create_x_t_array(x_v,t_v,p=0.001):
     """ In order to compute the FFT, the data provided had to be given
