@@ -72,7 +72,8 @@ def stochastic_oscillation(x1,x2, Tmax=100):
         return 1
     return 0
  
-c20 = 0.000005; c21 = 0.0005; N = 10; N2 = 10;
+c20 = 0.000005; c21 = 0.001; N = 20; N2 = 10;
+c3  = 1.0; c1 = 1.0
 
 c2_data = np.empty(N); i = 0;
 for c2 in np.linspace(c20,c21,N):
