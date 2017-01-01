@@ -81,4 +81,3 @@ for c2 in np.linspace(c20,c21,N):
         c2_data[i] += stochastic_oscillation(xo[0],xo[1])
     i += 1;
     c2_data /= N2;
-   
