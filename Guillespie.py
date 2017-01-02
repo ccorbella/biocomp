@@ -9,11 +9,10 @@ def seedLCG(initVal):
     rand = initVal
 
 def lcg():
-    a = 1140671485
-    c = 128201163
-    m = 2**24
+    a = 1664525
+    c = 1013904223
     global rand
-    rand = (a*rand + c) % m
+    rand = (a*rand + c) & 0xFFFFFFFF
     return rand
 
 def rand_exp(l,p=10000.0):
