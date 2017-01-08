@@ -1,4 +1,13 @@
-import numpy as 
+#Final
+import numpy as np
+
+NaN = float('nan')
+def average(g,i):
+    if g.shape != (0,):
+        return np.average(g, weights=i)
+    else:
+        return NaN
+
 def create_x_t_array(x_v,t_v,p=0.001):
     """ In order to compute the FFT, the data provided had to be given
     every certain fixed time step. Otherwise, the results obtained would
@@ -20,10 +29,12 @@ def create_x_t_array(x_v,t_v,p=0.001):
     Output
     -------
     A numpy vector with the results."""
+    
     split_at = t_v.searchsorted(np.arange(0,t_v[-1],p))        #Finding the split positions from the vector t_v
-    means    = np.array(map(np.mean,np.split(x_v, split_at)))  #Computation of the mean of the splitted x_v subvectors
+    means    = np.array(map(lambda g,i: average(g,i),np.split(x_v, split_at),np.split(np.append(0,np.diff(t_v)), split_at)))
+                                                               #Computation of the mean of the splitted x_v subvectors
     #NaN subvectors would appear in case p < Delta t. Then, there would be no samples to average.
-    return means[~np.isnan(means)]                             #Providing the results (except for the NaN subvectors)
+    return means[~np.isnan(means)]              #Providing the results (except for the NaN subvectors)
 
 #Mean amplitude
 import math
@@ -46,8 +57,8 @@ def A_rms_freq(x_p, p=0.001):
     amp: float; the mean RMS amplitude
     f:   float; the frequency"""
     ff,  periodograma_x   = signal.periodogram(x_p,1.0/p , nfft = 2**20)
-    f = ff[np.argmax(periodograma_x)] # Finding the frequency of the signal from the periodogram
-    T = 1/f;                          # Period of the signal
+    fp = ff[np.argmax(periodograma_x)] # Finding the frequency of the signal from the periodogram
+    T = 1/fp;                          # Period of the signal
     T_indx = int(T/p)                 # Period index inside the array
     N = int(x_p.shape[0]/T_indx)      # Number of periods of the array
     f = 1.0/T_indx
@@ -56,7 +67,9 @@ def A_rms_freq(x_p, p=0.001):
     for i in xrange(N):
         Arms[i] = math.sqrt(f*np.sum(x_p[i*T_indx: (i+1)*T_indx]**2)) #RMS formula computation
     
-    return np.mean(Arms), f
+    return np.mean(Arms), fp
+
+#Final
 
 A = np.empty(10); f = np.empty(10)
 p = 0.001;
@@ -66,7 +79,7 @@ for i in xrange(10):
     for j in xrange(10):
         x1_v = np.load('x1_'+str(j+1)+'_v'+str(i)+'.npy');
         x2_v = np.load('x2_'+str(j+1)+'_v'+str(i)+'.npy');
-        t_v = np.load('t_'+str(j+1)+'_v'+str(i)+'.npy');
+        t_v  = np.load('t_'+str(j+1)+'_v'+str(i)+'.npy');
         # Combining both funcitons above, this small program computes the average
         #amplitude and the frequency of the signal.
         x1_vp = create_x_t_array(x1_v, t_v, p); x2_vp = create_x_t_array(x2_v, t_v, p)
