@@ -1,7 +1,7 @@
 import numpy as np
 
 NaN = float('nan')
-def average(g,i):
+def __average__(g,i):
     if g.shape != (0,):
         return np.average(g, weights=i)
     else:
@@ -30,7 +30,7 @@ def create_x_t_array(x_v,t_v,p=0.001):
     A numpy vector with the results."""
     
     split_at = t_v.searchsorted(np.arange(0,t_v[-1],p))        #Finding the split positions from the vector t_v
-    means    = np.array(map(lambda g,i: average(g,i),np.split(x_v, split_at),np.split(np.append(0,np.diff(t_v)), split_at)))
+    means    = np.array(map(lambda g,i: __average__(g,i),np.split(x_v, split_at),np.split(np.append(0,np.diff(t_v)), split_at)))
                                                                #Computation of the mean of the splitted x_v subvectors
     #NaN subvectors would appear in case p < Delta t. Then, there would be no samples to average.
     return means[~np.isnan(means)]              #Providing the results (except for the NaN subvectors)
