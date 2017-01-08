@@ -1,4 +1,3 @@
-#Final
 import numpy as np
 
 NaN = float('nan')
