@@ -78,3 +78,7 @@ plt.plot(t,mm3,label='m3')
 plt.legend()
 plt.xlabel('t')
 ```
+## FIG files
+Files named 'Fig_i.py' are completely executable and return the figures present in both projects (Conrad and Maria). Some of them were excruciatingly long so some vectors already computed by us (in fact the ones we used) can be found https://drive.google.com/file/d/0B0BCFLntEx2ERjd5UjJxZEx1MkU/view?usp=sharing in in order to speed up everything. How these vectors were calculated is also explained and one can try if feeling adventurous and/or bored.
+
+As a final note, the authors find much more useful to review individually the other codes presented, much more structurized and with no "np.save", "plt.plot" and these kind of commands that apport no real value in the middle.
