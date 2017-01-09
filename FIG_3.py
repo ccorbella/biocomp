@@ -63,7 +63,9 @@ for i in xrange(10):
         
     A[i] = np.mean(AA); f[i] = np.mean(ff)
 
-np.save('A', A); np.save('f', f);
+#Alternatively, you can load directly A and f, which are also included in the data folder
+#A = np.load('A.npy'); f = np.load('f.npy');
+
 
 fig = plt.figure(0)
 plt.plot(np.linspace(1,3,10),A) #Ferne varies
