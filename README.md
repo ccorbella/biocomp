@@ -31,11 +31,34 @@ X_{n+1} = (a X_{n} + c) \& \text{0xFFFFFFFF}
 In order to work with the 'Amplitude' module, the vectors must have been first created and imported using the first module.
 Finally, to show the results something such as:
 ```python
+import numpy as np
+x1_v0 = np.load('x1_v0.npy'); x2_v0 = np.load('x2_v0.npy'); t_v0 = np.load('t_v0.npy');
+x1_v1 = np.load('x1_v1.npy'); x2_v1 = np.load('x2_v1.npy'); t_v1 = np.load('t_v1.npy');
+x1_v2 = np.load('x1_v2.npy'); x2_v2 = np.load('x2_v2.npy'); t_v2 = np.load('t_v2.npy');
+x1_v3 = np.load('x1_v3.npy'); x2_v3 = np.load('x2_v3.npy'); t_v3 = np.load('t_v3.npy');
+x1_v4 = np.load('x1_v4.npy'); x2_v4 = np.load('x2_v4.npy'); t_v4 = np.load('t_v4.npy');
+x1_v5 = np.load('x1_v5.npy'); x2_v5 = np.load('x2_v5.npy'); t_v5 = np.load('t_v5.npy');
+x1_v6 = np.load('x1_v6.npy'); x2_v6 = np.load('x2_v6.npy'); t_v6 = np.load('t_v6.npy');
+x1_v7 = np.load('x1_v7.npy'); x2_v7 = np.load('x2_v7.npy'); t_v7 = np.load('t_v7.npy');
+x1_v8 = np.load('x1_v8.npy'); x2_v8 = np.load('x2_v8.npy'); t_v8 = np.load('t_v8.npy');
+x1_v9 = np.load('x1_v9.npy'); x2_v9 = np.load('x2_v9.npy'); t_v9 = np.load('t_v9.npy');
+
 import matplotlib.pyplot as plt
 %matplotlib inline
 
-plt.plot(A)
-plt.plot(f)
+fig = plt.figure(0)
+plt.plot(np.linspace(1,10,10),A)
+plt.xlabel('c',fontsize=16)
+plt.ylabel('Amplitude',fontsize=16)
+
+plt.savefig('amplitude.png')
+
+fig = plt.figure(1)
+plt.plot(np.linspace(1,10,10),f)
+plt.xlabel('c',fontsize=16)
+plt.ylabel('Frequency',fontsize=16)
+
+plt.savefig('frequency.png')
 ```
 
 is recommended to plot the amplitudes (for the first case) and the frequencies (for the second).
