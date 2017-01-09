@@ -18,7 +18,7 @@ plt.plot(x1_vi,x2_vi)
 
 Note that the random numbers are computed using m = 2^b because this allows the modulus operation to be computed by merely truncating all but the rightmost **b** bits:
 ```latex
-X_${n}    = a X_{n} + c
+X_{n}    = a X_{n} + c
 X_{n+1} = X_{n} - (X_{n} << b) >> b
 ```
 
