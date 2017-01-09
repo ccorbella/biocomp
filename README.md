@@ -16,6 +16,14 @@ plt.plot(t_v,x2_vi) #To find the x2 evolution of the vector i
 plt.plot(x1_vi,x2_vi)
 ```
 
+Note that the random numbers are computed using m = 2^b because this allows the modulus operation to be computed by merely truncating all but the rightmost **b** bits:
+```    X_{n}    = a X_{n} + c
+       X_{n+1} = X_{n} - (X_{n} << b) >> b
+```
+
+Taking b = 32, it can be rewritten as:
+```    X_{n+1} = (a X_{n} + c) \& \text{0xFFFFFFFF}
+```
 
 ### Amplitude module
 In order to work with the 'Amplitude' module, the vectors must have been first created and imported using the first module.
