@@ -37,3 +37,5 @@ elif x2 == 0:
 
 plt.figure(0)
 plt.plot(t_v,x1_v)
+
+#In Fig. 2 this code is executed 4 times
