@@ -72,7 +72,7 @@ def stochastic_oscillation(x1,x2, Tmax=100):
         return 1
     return 0
  
-c20 = 0.000005; c21 = 0.001; N = 20; N2 = 10;
+c20 = 0.000005; c21 = 0.001; N = 100; N2 = 100;
 c3  = 1.0; c1 = 1.0
 
 c2_data = np.empty(N); i = 0;
